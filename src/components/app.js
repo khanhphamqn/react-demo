@@ -1,7 +1,5 @@
 import React from 'react';
 import Header from './header'
-import CreateTodo from './create-todo';
-import TodosList from './todos-list';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import ReactDOM from 'react-dom';
