@@ -1,0 +1,137 @@
+@import '../../../../assets/styles/variable';
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@-webkit-keyframes zoomIn {
+    0% {
+        opacity: 0;
+        transform: scale3d(.3,.3,.3)
+    }
+
+    50% {
+        opacity: 1
+    }
+}
+
+@keyframes zoomIn {
+    0% {
+        opacity: 0;
+        transform: scale3d(.3,.3,.3)
+    }
+
+    50% {
+        opacity: 1
+    }
+}
+
+.zoomIn {
+	animation-name: zoomIn;
+	animation-duration: 1s;
+	animation-fill-mode: both;
+}
+
+.Bookstore {
+	text-align: center;
+	.Bookstore-header {
+		max-width: 400px;
+		margin: 0 auto;
+		.search-area {
+			padding: 0 15px;
+			position: relative;
+			.loader {
+				position: absolute;
+				right: 20px;
+				top: 8px;
+				z-index: 1;
+				width: 30px;
+				height: 30px;
+				margin: -5px 0 0 -5px;
+				border: 5px solid #f3f3f3;
+				border-radius: 50%;
+				border-top: 5px solid #3498db;
+				-webkit-animation: spin 0.7s linear infinite;
+				animation: spin 0.7s linear infinite;
+			}
+		}
+		.input-component {
+			label {
+				color: $gray-light;
+			}
+			input {
+				color: $gray-light;
+			}
+		}
+	}
+	.Bookstore-list {
+		padding: 0 40px;
+		max-width: 1024px;
+		margin: 0 auto;
+		display: flex;
+	    flex-wrap: wrap;
+	    justify-content: center;
+		.book-item {
+			padding: 0 15px;
+			margin-top: 20px;
+			width: 445px;
+			// @extend .fadeIn;
+			.inner {
+				min-height: 328px;
+				box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+				padding: 24px;
+				position: relative;
+			}
+			.book-item-header {
+				overflow: hidden;
+				.title {
+					float: left;
+					max-width: 80%
+				}
+				.thumb {
+					float: right;
+					max-width: 20%;
+					img {
+						width: 100%;
+					}
+				}
+			}
+			.title, .book-item-body, .book-item-footer {
+				text-align: left;
+			}
+			.book-item-body {
+				clear: both;
+				margin-top: 10px;
+			}
+			.book-item-footer {
+				position: absolute;
+				bottom: 24px;
+				h5 {
+					margin-top: 0;
+					margin-bottom: 10px;
+				}
+			}
+		}
+		@media screen and (max-width: $mobile-breakpoint) {
+			.book-item {
+				width: 100%;
+				font-size: 0.8rem;
+				.book-item-footer {
+					position: relative;
+					bottom: initial;
+				}
+			}
+		}
+		@media screen and (max-width: $mobile-breakpointx480) {
+			& {
+				padding: 0;
+			}
+		}
+	}
+}
+

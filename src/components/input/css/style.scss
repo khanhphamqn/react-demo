@@ -1,0 +1,54 @@
+@import '../../../assets/styles/variable';
+
+.input-component {
+	position: relative;
+	label {
+		position:absolute;
+		transform:translateY(6px);
+		left:13px;
+		color:rgba($white,.5);
+		transition:all 0.25s ease;
+		-webkit-backface-visibility: hidden;
+		pointer-events: none;
+		font-size:22px;
+		.req {
+			margin:2px;
+			color:$main;
+		}
+	}
+
+	label.active {
+		transform:translateY(-20px);
+		left:2px;
+		font-size:14px;
+		.req {
+			opacity:0;
+		}
+	}
+
+	label.highlight {
+		color:$white;
+	}
+
+	input {
+		font-size:22px;
+		display:block;
+		width:100%;
+		padding:5px 10px;
+		background:none;
+		background-image:none;
+		border:1px solid $gray-light;
+		color:$white;
+		border-radius:0;
+		transition:border-color .25s ease, box-shadow .25s ease;
+		&:focus {
+			outline:0;
+			border-color:$main;
+		}
+	}
+	.error-message {
+		color: $red;
+		position: absolute;
+		left: 0;
+	}
+}
